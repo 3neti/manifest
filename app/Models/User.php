@@ -24,6 +24,7 @@ class User extends Authenticatable implements Wallet, WalletFloat
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
     use HasWalletFloat;
+
     /**
      * The attributes that are mass assignable.
      *

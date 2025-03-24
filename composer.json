@@ -11,6 +11,7 @@
     "require": {
         "php": "^8.2",
         "bavix/laravel-wallet": "^11.4",
+        "brick/money": "^0.10.1",
         "frittenkeez/laravel-vouchers": "^0.6.0",
         "inertiajs/inertia-laravel": "^2.0",
         "laravel/framework": "^12.0",
