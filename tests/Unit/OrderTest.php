@@ -38,3 +38,18 @@ test('order has items', function () {
     expect($item->signature)->toBeString();
     expect($item->signed_at)->toBeInstanceOf(DateTime::class);
 });
+
+test('order has new items', function () {
+    $order = Order::factory()->forProject()->forTrip()->create();
+    $item = $order->items()->make(['role' => 'xxx']);
+    expect($item->role)->toBe('xxx');
+    $user = User::factory()->create();
+    $item->user()->associate($user);
+    $item->signature = $signature = $this->faker->sentence();
+    $item->signed_at = $dt = $this->faker->datetime();
+    $item->save();
+    expect($item->user->is($user))->toBeTrue();
+    expect($item->signature)->toBe($signature);
+    expect($item->signed_at->format('Y-m-d'))->toBe($dt->format('Y-m-d'));
+
+});
